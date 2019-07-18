@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Написать поэму</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/write">Коллективное творчество</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="/write">Написать <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/read">Читать</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div align="center">
+    <form method="POST">
+        {% csrf_token %}
+        <h1>Дописать историю</h1>
+        <input type="hidden" name="poemId" value="{{poem.id}}">
+        <label>Id истории: </label>
+        <label>{{poem.id}}</label>
+        <p>Текст истории: </p>
+        <div class=""card style="width: 500px">
+            <p>{{poem.text}}</p>
+        </div>
+        <textarea name="text" cols="60" rows="10"></textarea>
+        <p></p>
+        <button class="btn btn-primary" type="submit" name="button1" value="Добавить">Добавить</button>
+        <button class="btn btn-primary" type = "submit" name = "button2" value="Закончить">Закончить</button>
+        <button class="btn btn-success" type = "submit" name = "button3" value="Новая">Написать новую</button>
+    </form>
+</div>
+</body>
+</html>
