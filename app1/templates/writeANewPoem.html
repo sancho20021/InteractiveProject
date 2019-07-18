@@ -25,14 +25,10 @@
 <div align="center">
     <form method="POST">
         {% csrf_token %}
-        <h1>Дописать историю</h1>
-        <input type="hidden" name="poemId" value={{poemId}}>
-        <label>Название истории: {{poemName}}</label>
-        <input type="hidden" name="poemName" value={{poemName}}>
-        <p>Текст последнего абзаца: </p>
-        <div class=""card style="width: 500px">
-            <p>{{poem}}</p>
-        </div>
+        <h1>Написать новую историю</h1>
+        <input type="hidden" name="poemId" value={{poem.id}}>
+        <label>Название истории: </label>
+        <input type="text" name="poemName">
         <p>Поле для ввода</p>
         <textarea name="text" cols="60" rows="10"></textarea>
         <p></p>
