@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from app1.views import read, write
+from app1.views import read, write, readOne
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('write', write),
-    path('read', read)
+    path('read', read, name="readPage"),
+    path('read/<int:poemId>', readOne),
 ]

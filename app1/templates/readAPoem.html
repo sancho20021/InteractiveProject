@@ -23,13 +23,25 @@
   </div>
 </nav>
     <div align="center">
-        <h1>Прочитать случайную историю</h1>
-        <label>Название истории: </label>
-        <label>{{poem.name}}</label>
-        <p>Текст истории: </p>
+        <h1>Прочитать историю</h1>
+        <h5>Случайная история: </h5>
+
+        <label style="margin-top: 0px;">{{poem.name}}</label>
         <div class="card" style="width: 500px">
-            {{poem.text}}
+            <table>
+                {% for prg in paragraphs %}
+                <tr>
+                    <td>{{prg.text}}</td>
+                    <td class="form-text text-muted">- {{prg.author}}</td>
+                </tr>
+                {% endfor %}
+            </table>
         </div>
+        <h5 style="margin-top: 10px;">Список историй:</h5>
+        <p></p>
+        {% for nowPoem in poems %}
+        <a href="/read/{{nowPoem.id}}">{{nowPoem.name}}</a><br>
+        {% endfor%}
     </div>
 </body>
 </html>
