@@ -49,8 +49,10 @@ def write(request):
             prg = Paragraph()
             prg.app1 = poem
             prg.text = request.POST['text']
-            prg.author = request.POST.get('author', 'Аноним')
+            prg.author = request.POST.get('author')
             prg.save()
-        else:
+        if 'button4' in request.POST:
+            return redirect('/write')
+        if 'button3' in request.POST:
             return render(request, 'writeANewPoem.html')
         return redirect('/read')
